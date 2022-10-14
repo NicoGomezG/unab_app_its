@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:unab_app_its/Pantallas/Home.dart';
 import 'package:unab_app_its/Pantallas/login_page.dart';
 import 'package:unab_app_its/Pantallas/quiz_screen.dart';
 
@@ -21,10 +22,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home:  LoginScreen( //Inicio de app en login
-        ),
-      );
+      ),
+    );
 
 
   }
 }
-

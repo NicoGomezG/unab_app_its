@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:unab_app_its/main.dart';
-import 'package:unab_app_its/question_model.dart';
+import 'package:unab_app_its/Model/question_model.dart';
 
 class QuizScreen extends StatefulWidget {
   @override
@@ -94,7 +94,7 @@ class _QuizScreenState extends State<QuizScreen> {
         child: Text(answer.answerText),
         style: ElevatedButton.styleFrom(
           shape: const StadiumBorder(),
-          primary: isSelected ? Colors.red : Colors.white,
+          primary: isSelected ? Colors.greenAccent : Colors.white,
           onPrimary: isSelected ? Colors.white : Colors.black,
         ),
         onPressed: () {
