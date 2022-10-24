@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:unab_app_its/Pantallas/create_quiz.dart';
 import 'package:unab_app_its/Widget/widgets.dart';
+import 'package:http/http.dart' as http;
 
 class Home extends StatefulWidget {
   @override
@@ -8,9 +11,11 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+ /* final url = Uri.parse("http://10.0.2:3306/phpmyadmin/index.php?route=/database/structure&db=its");*/
+
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: appBar(context),
         backgroundColor: Colors.transparent,
@@ -20,13 +25,12 @@ class _HomeState extends State<Home> {
       body: Container(
         child: Column(
           children: [
-
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: (){
+        onPressed: () {
           Navigator.push(context, MaterialPageRoute(
               builder: (context) => CreateQuiz()
           ));
@@ -34,4 +38,13 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+/*  Future getAlternativa() async {
+    final res = await http.get(url);
+    final objetos = jsonDecode(res.body);
+    final lista = List.from((objetos));
+
+    lista.forEach((element) {
+      final Alternativa = Alternativa()
+    })
+  }*/
 }
