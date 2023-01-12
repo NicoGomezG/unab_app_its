@@ -1,0 +1,10 @@
+python3 -m venv env
+.\env\scripts\activate
+pip install django==4.1.1
+python.exe -m pip install --upgrade pip
+django-admin startproject proyecto_api
+cd proyecto_api
+django-admin startapp api
+pip install mysqlclient pymysql
+python manage.py migrate
+python manage.py createsuperuser

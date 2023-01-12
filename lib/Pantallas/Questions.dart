@@ -11,6 +11,14 @@ class _CreateQuestionState extends State<CreateQuestion> {
   final _formKey = GlobalKey<FormState>();
   late String questionTitle, answerA, answerB, answerC, answerD;
 
+ /* uploadQuizData(){
+
+    if(_formKey.currentState.validate()){
+
+
+    }
+  }*/
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,7 +96,13 @@ class _CreateQuestionState extends State<CreateQuestion> {
 
               Spacer(),
 
-              blueButton(context, 'Siguiente'),
+         /*     GestureDetector(   POR IMPLEMENTAR
+                  onTap:(){
+                    //ToDO
+                  } ,
+                  child:
+              ),*/
+              blueButton(context, 'Agregar Pregunta'),
               SizedBox(height: 5,),
               blueButton(context, 'Finalizar Cuestionario'),
 

@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^%53er4n(=hq_x(4lh-fin=fxnub57psaw#5^$)8mgv97jjjh2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'dj_rest_auth',
-    
     'api',
 ]
 
@@ -133,9 +132,26 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+#STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Production
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES' : (
+        'rest_framework.renderers.JSONRenderer',
+    )
+}
+
+STATIC_ROOT="/proyecto_api/static"
+STATIC_URL = '/static/'
+DEBUG=False
+
+ALLOWED_HOSTS = ['*']
+USE_X_FORWARDED_HOST=True
+USE_X_FORWARDED_PORT=True
+
+CORS_ORIGIN_ALLOW_ALL = True
