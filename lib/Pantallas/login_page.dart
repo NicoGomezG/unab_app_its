@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:unab_app_its/Pantallas/Home.dart';
 import 'package:unab_app_its/Pantallas/createForm.dart';
-import 'package:unab_app_its/Pantallas/quiz_screen.dart';
+import 'package:unab_app_its/Pantallas/inicio.dart';
 
 
+// PAGINA DE LOGIN
 class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -12,7 +13,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.grey.shade300,
         body: SafeArea(
             child: Center(
               child: Column(
@@ -31,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   // Texto principal
                   Text(
-                    'UNAB ITS',
+                    'UNAB APP',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 24,
@@ -42,13 +43,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(height: 50),
 
 
-                  //email
+                  //user
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 28.0),
                     child: Container(
                       decoration:BoxDecoration(
                         color: Colors.white,
-                        border: Border.all(color: Colors.blueAccent),
+                        border: Border.all(color: Colors.blue.shade900),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Padding(
@@ -76,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Container(
                       decoration:BoxDecoration(
                         color: Colors.white,
-                        border: Border.all(color: Colors.blueAccent),
+                        border: Border.all(color: Colors.blue.shade900),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Padding(
@@ -99,14 +100,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(height: 10),
 
 
-                  //boton
+                  //boton INICIAR SESION
                   RawMaterialButton(
                     onPressed: ()async{
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                Home()), //ENVIAR A LA PANTALLA DE Cuestionario
+                                Inicio()
+                        ), //ENVIAR A LA PANTALLA DE Cuestionario
                       );
                     },
 
@@ -115,12 +117,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Container(
                           padding: EdgeInsets.all(14),
                           decoration: BoxDecoration(
-                            color:Colors.blueAccent,
+                            color:Colors.blue.shade900,
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Center(
                             child: Text(
-                              'Ingresar',
+                              'Iniciar Sesión',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,

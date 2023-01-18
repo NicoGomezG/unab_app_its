@@ -1,6 +1,9 @@
 from dataclasses import fields
 from rest_framework import serializers
 from .models import * 
+from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
+
 
 class TakeSerializer(serializers.ModelSerializer):
     
@@ -42,3 +45,46 @@ class TakeAnswerSerializer(serializers.ModelSerializer):
         read_only_fields =()
 
 
+class AlumnoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Alumno
+        fields = '__all__'
+
+class PersonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Person
+        fields = '__all__'
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'first_name', 'last_name', 'username', 'password', 'groups', 'email']
+         #esconder password
+        extra_kwargs = {
+            'password': {'write_only': True, 'required': True}
+        }
+
+    def create(self, validated_data):
+        user = User.objects.create_user(**validated_data)
+        Token.objects.create(user=user)
+        return user
+
+class CursoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Curso
+        fields = '__all__'
+        read_only_fields = ('created_at',)
+
+class TomaRamosSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TomaRamos
+        fields = '__all__'
+        extra_kwargs = {
+            'fecha': {'read_only': True, 'required': False},
+            # 'fecha': {'read_only': True},
+        }    
+
+class AsignarCursoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AsignarCurso
+        fields = '__all__'

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 import 'package:unab_app_its/Pantallas/Questions.dart';
 import 'package:unab_app_its/Widget/widgets.dart';
 
@@ -53,7 +53,7 @@ class _CreateQuizState extends State<CreateQuiz> {
 
             Spacer(),
 
-            //blueButton(context, 'Creacion de alternativas'),
+            //BOTON "SIGUIENTE" A QUESTIONS()
 
             RawMaterialButton(
               onPressed: ()async{
@@ -66,15 +66,8 @@ class _CreateQuizState extends State<CreateQuiz> {
               },
 
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 18.0),
-                child: Container(
-                    padding: EdgeInsets.all(14),
-                    decoration: BoxDecoration(
-                      color:Colors.blueAccent,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: blueButton(context, "Crear preguntas")
-                ),
+                padding: const EdgeInsets.symmetric(horizontal: 28.0),
+                child: blueButton(context, "Siguiente")
               ),
             ),
 
@@ -89,3 +82,4 @@ class _CreateQuizState extends State<CreateQuiz> {
     );
   }
 }
+*/

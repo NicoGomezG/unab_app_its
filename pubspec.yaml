@@ -39,6 +39,9 @@ dependencies:
   shared_preferences: ^2.0.15
   random_string: ^2.3.1
   http: ^0.13.5
+  snippet_coder_utils: ^1.0.9
+  image_picker: ^0.8.4+4
+  email_validator: ^2.1.17
 
 dev_dependencies:
   flutter_test:
