@@ -1,9 +1,14 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:unab_app_its/Pantallas/Exam/exam_list.dart';
 import 'package:unab_app_its/Pantallas/alumno/alumno_list.dart';
 import 'package:unab_app_its/Pantallas/Curso/curso_list.dart';
 import 'package:unab_app_its/Pantallas/inicio.dart';
+
+import 'package:unab_app_its/Pantallas/Questions.dart';
+import 'package:unab_app_its/Pantallas/create_quiz.dart';
+import 'package:unab_app_its/main2.dart';
 
 class Menu extends StatefulWidget {
   @override
@@ -20,6 +25,10 @@ class MenuState extends State<Menu> {
         return const AlumnosList();
       case 2:
         return const CursosList();
+      case 3:
+        return CreateQuiz();//ExamList() CreateQuiz()
+      case 4:
+        return MyStatefulWidget();
     }
   }
 
@@ -35,18 +44,21 @@ class MenuState extends State<Menu> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("UNAB APP"),
+        backgroundColor: Colors.blue.shade900,
       ),
       drawer: Drawer(
+        backgroundColor: Colors.blue.shade900,
         child: ListView(
           children: <Widget>[
             const UserAccountsDrawerHeader(
-              accountName: Text('UNAB APP'),
-              accountEmail: Text('www.unab.cl'),
+              accountName: Text('Jhon Stiff'),
+              accountEmail: Text('J.stiffwang@uandresbello.edu'),
               currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage('assets/logo1.png'),
+                backgroundImage: AssetImage('assets/personalidad.png'),
               ),
             ),
             ListTile(
+              textColor: Colors.white,
               title: const Text('Inicio'),
               leading: const Icon(Icons.phone),
               selected: (0 == _selectDrawerItem),
@@ -56,6 +68,7 @@ class MenuState extends State<Menu> {
             ),
             const Divider(),
             ListTile(
+              textColor: Colors.white,
               title: const Text('Alumnos'),
               leading: const Icon(Icons.person),
               selected: (1 == _selectDrawerItem),
@@ -64,16 +77,18 @@ class MenuState extends State<Menu> {
               },
             ),
             ListTile(
+              textColor: Colors.white,
               title: const Text('Cursos'),
-              leading: const Icon(Icons.wind_power_rounded),
+              leading: const Icon(Icons.assignment_late_outlined),
               selected: (2 == _selectDrawerItem),
               onTap: () {
                 _onSelectItem(2);
               },
             ),
             ListTile(
-              title: const Text('Toma Ramos'),
-              leading: const Icon(Icons.production_quantity_limits),
+              textColor: Colors.white,
+              title: const Text('Cuestionarios'),
+              leading: const Icon(Icons.assignment),
               selected: (3 == _selectDrawerItem),
               onTap: () {
                 _onSelectItem(3);
@@ -81,17 +96,19 @@ class MenuState extends State<Menu> {
             ),
             const Divider(),
             ListTile(
-              title: const Text('Cerra Sessión'),
+              textColor: Colors.white,
+              title: const Text('Cerrar Sesión'),
               leading: const Icon(Icons.touch_app_outlined),
               selected: (3 == _selectDrawerItem),
               onTap: () {
-                exit(0);
+                _onSelectItem(4);
               },
             ),
           ],
         ),
       ),
       body: getDrawerItemWidget(_selectDrawerItem),
+      backgroundColor: Colors.blueGrey[50],
     );
   }
 }

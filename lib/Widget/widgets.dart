@@ -1,12 +1,12 @@
-/*import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 Widget appBar(BuildContext context){
   return RichText(
     text: TextSpan(
       style: TextStyle(fontSize: 22),
       children: const <TextSpan>[
-        TextSpan(text: 'UNAB', style: TextStyle(fontWeight: FontWeight.w600, color: Colors.blueAccent)),
-        TextSpan(text: ' ITS', style: TextStyle(fontWeight: FontWeight.w600, color: Colors.redAccent)),
+        TextSpan(text: 'Nuevo', style: TextStyle(fontWeight: FontWeight.w600, color: Colors.blueAccent)),
+        TextSpan(text: ' Cuestionario', style: TextStyle(fontWeight: FontWeight.w600, color: Colors.blueAccent)),
       ],
     ),
   );
@@ -27,4 +27,3 @@ Widget blueButton(BuildContext context, String label){
   );
 
 }
-*/

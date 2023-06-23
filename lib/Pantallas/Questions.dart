@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:unab_app_its/Widget/widgets.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CreateQuestion extends StatefulWidget {
   @override
@@ -103,7 +104,9 @@ class _CreateQuestionState extends State<CreateQuestion> {
                   child:
               ),*/
               blueButton(context, 'Agregar Pregunta'),
+
               SizedBox(height: 5,),
+
               blueButton(context, 'Finalizar Cuestionario'),
 
               SizedBox(height: 60,),

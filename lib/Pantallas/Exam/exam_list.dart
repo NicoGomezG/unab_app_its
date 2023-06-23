@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:unab_app_its/Model/curso_model.dart';
-import 'package:unab_app_its/Pantallas/Curso/curso_item.dart';
-import 'package:unab_app_its/Services/api_curso.dart';
+import 'package:unab_app_its/Model/exam_model.dart';
+import 'package:unab_app_its/Services/api_exam.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
+import 'package:unab_app_its/Services/api_exam.dart';
+import 'package:unab_app_its/Pantallas/Exam/exam_item.dart';
 
-class CursosList extends StatefulWidget {
-  const CursosList({Key? key}) : super(key: key);
+class ExamsList extends StatefulWidget {
+  const ExamsList({Key? key}) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
-  _CursosListState createState() => _CursosListState();
+  _ExamsListState createState() => _ExamsListState();
 }
 
-class _CursosListState extends State<CursosList> {
+class _ExamsListState extends State<ExamsList> {
+  // List<ExamsModel> examno = List<ExamsModel>.empty(growable: true);
   bool isApiCallProcess = false;
   @override
   void initState() {
@@ -22,30 +24,25 @@ class _CursosListState extends State<CursosList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*
-      appBar: AppBar(
-        title: const Text('Django - CRUD'),
-        elevation: 0,
-      ),*/
       backgroundColor: Colors.grey[200],
       body: ProgressHUD(
         inAsyncCall: isApiCallProcess,
         opacity: 0.3,
         key: UniqueKey(),
-        child: loadCursos(),
+        child: loadExams(),
       ),
     );
   }
 
-  Widget loadCursos() {
+  Widget loadExams() {
     return FutureBuilder(
-      future: APICurso.getCursos(),
+      future: APIExam.getExam(),
       builder: (
           BuildContext context,
-          AsyncSnapshot<List<CursoModel>?> model,
+          AsyncSnapshot<List<ExamModel>?> model,
           ) {
         if (model.hasData) {
-          return cursoList(model.data);
+          return examList(model.data);
         }
 
         return const Center(
@@ -55,7 +52,7 @@ class _CursosListState extends State<CursosList> {
     );
   }
 
-  Widget cursoList(cursos) {
+  Widget examList(exams) {
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
@@ -72,7 +69,7 @@ class _CursosListState extends State<CursosList> {
                       onPressed: () {
                         Navigator.pushNamed(
                           context,
-                          '/add-curso',
+                          '/add-exam',
                         );
                       },
                       style: ElevatedButton.styleFrom(
@@ -82,29 +79,29 @@ class _CursosListState extends State<CursosList> {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(50))),
                       child: const Text(
-                        'Agregar Curso',
+                        'Agregar Examen',
                         style: TextStyle(fontSize: 15, color: Colors.white),
                       )),
                 ],
                 mainAxisAlignment: MainAxisAlignment.center,
               ),
 
-              //Navigator.pushNamed(context,'/add-product',);
-              //Add Product
+              //   child: const Text('Add exammno'),
+              //Navigator.pushNamed(context,'/add-exammno',);
               ListView.builder(
                 shrinkWrap: true,
                 physics: const ClampingScrollPhysics(),
                 scrollDirection: Axis.vertical,
-                itemCount: cursos.length,
+                itemCount: exams.length,
                 itemBuilder: (context, index) {
-                  return CursoItem(
-                    model: cursos[index],
-                    onDelete: (CursoModel model) {
+                  return ExamItem(
+                    model: exams[index],
+                    onDelete: (ExamModel model) {
                       setState(() {
                         isApiCallProcess = true;
                       });
 
-                      APICurso.deleteCurso(model.id).then(
+                      APIExam.deleteExam(model.id).then(
                             (response) {
                           setState(() {
                             isApiCallProcess = false;

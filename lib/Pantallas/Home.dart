@@ -5,6 +5,7 @@ import 'package:unab_app_its/Pantallas/create_quiz.dart';
 import 'package:unab_app_its/Widget/widgets.dart';
 import 'package:http/http.dart' as http;
 
+//posible view quizes con logo add quizes abajo
 //PAGINA DE INICIO
 class Home extends StatefulWidget {
   @override

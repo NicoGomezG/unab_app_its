@@ -15,31 +15,42 @@ class inicio extends StatelessWidget {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'UNAB APP',
+                  '',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
                       fontSize: 30),
                 )),
+            const Image(
+              image: AssetImage('assets/logo1.png'),
+              fit: BoxFit.scaleDown,
+            ),
             Container(
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Bienvenid@ !! ',
+                  'Bienvenid@ Profesor',
                   style: TextStyle(fontSize: 20),
                 )),
             Container(
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Nuestro Telefono : 800220333',
+                  'Facultad de Ingenieria',
                   style: TextStyle(fontSize: 20),
                 )),
             Container(
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Direccion: Antonio Varas 818 ',
+                  'Sede Antonio Varas',
+                  style: TextStyle(fontSize: 20),
+                )),
+            Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(10),
+                child: const Text(
+                  '800220333',
                   style: TextStyle(fontSize: 20),
                 )),
           ],

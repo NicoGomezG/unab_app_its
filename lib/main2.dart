@@ -25,8 +25,13 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: _title,
         home: Scaffold(
-          appBar: AppBar(title: const Text(_title)),
+          appBar: AppBar(
+              title: const Text(_title),
+              backgroundColor: Colors.blue.shade900,
+
+          ),
           body: const MyStatefulWidget(),
+          backgroundColor: Colors.blueGrey[50],
         ),
         routes: {
           '/list-alumno': (context) => const AlumnosList(),
@@ -66,14 +71,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'UNAB APP',
+                  '',
                   style: TextStyle(
-                      color: Colors.blue,
+                      color: Colors.indigo,
                       fontWeight: FontWeight.w500,
                       fontSize: 30),
                 )),
             const Image(
-              image: AssetImage('assets/Logo.png'),
+              image: AssetImage('assets/logo.png'),
               fit: BoxFit.scaleDown,
             ),
             Container(
@@ -111,9 +116,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: ElevatedButton(
                   child: const Text('Iniciar Sesión'),
                   onPressed: () {
-                    inicio();
-                    //login();  SACAR COMENTARIO
-                   },
+                    login();
+                    },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue.shade900
+                  ),
+
                 )),
           ],
         ));
