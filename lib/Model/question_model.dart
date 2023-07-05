@@ -1,4 +1,4 @@
-/*
+
 class Question {
   final String questionText;
   final List<Answer> answersList;
