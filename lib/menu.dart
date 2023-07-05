@@ -8,6 +8,7 @@ import 'package:unab_app_its/Pantallas/inicio.dart';
 
 import 'package:unab_app_its/Pantallas/Questions.dart';
 import 'package:unab_app_its/Pantallas/create_quiz.dart';
+import 'package:unab_app_its/Pantallas/quiz_screen.dart';
 import 'package:unab_app_its/main2.dart';
 
 class Menu extends StatefulWidget {
@@ -28,6 +29,8 @@ class MenuState extends State<Menu> {
       case 3:
         return CreateQuiz();//ExamList() CreateQuiz()
       case 4:
+        return QuizScreen();
+      case 5:
         return MyStatefulWidget();
     }
   }
@@ -94,14 +97,23 @@ class MenuState extends State<Menu> {
                 _onSelectItem(3);
               },
             ),
+            ListTile(
+              textColor: Colors.white,
+              title: const Text('Responder Cuestionario'),
+              leading: const Icon(Icons.assignment),
+              selected: (4 == _selectDrawerItem),
+              onTap: () {
+                _onSelectItem(4);
+              },
+            ),
             const Divider(),
             ListTile(
               textColor: Colors.white,
               title: const Text('Cerrar Sesión'),
               leading: const Icon(Icons.touch_app_outlined),
-              selected: (3 == _selectDrawerItem),
+              selected: (4 == _selectDrawerItem),
               onTap: () {
-                _onSelectItem(4);
+                _onSelectItem(5);
               },
             ),
           ],
